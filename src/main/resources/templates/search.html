@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<script th:src="@{/js/bootstrap.min.js}" ></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>newTunes</title>
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">Search Page</h1>
+    </div>
+
+    <div class="form-group">
+        <form class="form-inline" action="#" th:action="@{/search}" method="get">
+            <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" id="searchText" type="text" th:name="searchWord" required/>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="search-title">
+        <p class="font-weight-normal">Results for "<span th:text="${searchWord}"></span>"</p>
+    </div>
+
+    <div th:if="${tracks} == null">
+        <div class="alert alert-warning mt-5" role="alert">
+            <h2>No tracks found</h2>
+        </div>
+    </div>
+
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Song name</th>
+            <th scope="col">Artist</th>
+            <th scope="col">Album name</th>
+            <th scope="col">Genre</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="track:${tracks}">
+            <td><label th:text="${track.getSong()}"></label></td>
+            <td><label th:text="${track.getArtist()}"></label></td>
+            <td><label th:text="${track.getAlbum()}"></label></td>
+            <td><label th:text="${track.getGenre()}"></label></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
