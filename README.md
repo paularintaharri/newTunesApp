@@ -1,7 +1,7 @@
 # NewTunesApp
 
 NewTunesApp is a web application where user can search tracks from SQLite database.
-It has buld using Java Spring, REST API and Thymeleaf as a templating engine. 
+It is built using Java Spring, REST API and Thymeleaf as a templating engine. 
 It can be accessed through websites or the API.
 
 ## API
