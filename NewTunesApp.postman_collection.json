@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "96030499-8161-4885-8fe0-1ad0008de960",
+		"name": "NewTunesApp API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Select all customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new customer to the database",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"customerId\": 60,\r\n        \"firstName\": \"Maija\",\r\n        \"lastName\": \"Meikalainen\",\r\n        \"country\": \"Finland\",\r\n        \"postalCode\": \"00100\",\r\n        \"phone\": \"+358123455\",\r\n        \"email\": \"maija.meikalainen@test,coml\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update customer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"customerId\": 2,\r\n        \"firstName\": \"Liisa\",\r\n        \"lastName\": \"Levanen\",\r\n        \"country\": \"Finland\",\r\n        \"postalCode\": \"00400\",\r\n        \"phone\": \"+358123455\",\r\n        \"email\": \"liisa.levanen@test.coml\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return the number of customers in each country",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers/country/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"country",
+						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return customers who are the highest spenders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers/max/spender",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"max",
+						"spender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Most popular genre for a given customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers/popular/genre/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"popular",
+						"genre",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

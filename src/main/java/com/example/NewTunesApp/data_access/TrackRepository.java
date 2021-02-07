@@ -1,7 +1,7 @@
 package com.example.NewTunesApp.data_access;
 
 import com.example.NewTunesApp.models.Track;
-import com.example.NewTunesApp.view.Logger;
+import com.example.NewTunesApp.logger.Logger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package com.example.NewTunesApp.view;
+package com.example.NewTunesApp.logger;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
