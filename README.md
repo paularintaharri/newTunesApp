@@ -10,7 +10,7 @@ Postman REST API collection can be found from the root folder.
 
 ## Web page
 
-Link to [Heroku](https://newtunesappdock.herokuapp.com/).
+Link to [Heroku](https://newtunesapp.herokuapp.com/).
 
 **Home page**
 
