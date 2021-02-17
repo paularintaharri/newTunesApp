@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/customers",
+					"raw": "http://localhost:8080/api/v1/customers",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -19,6 +19,7 @@
 					"port": "8080",
 					"path": [
 						"api",
+						"v1",
 						"customers"
 					]
 				}
@@ -40,7 +41,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/customers",
+					"raw": "http://localhost:8080/api/v1/customers",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -48,6 +49,7 @@
 					"port": "8080",
 					"path": [
 						"api",
+						"v1",
 						"customers"
 					]
 				}
@@ -69,7 +71,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/customers",
+					"raw": "http://localhost:8080/api/v1/customers",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -77,6 +79,7 @@
 					"port": "8080",
 					"path": [
 						"api",
+						"v1",
 						"customers"
 					]
 				}
@@ -89,7 +92,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/customers/country/total",
+					"raw": "http://localhost:8080/api/v1/customers/country/total",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -97,6 +100,7 @@
 					"port": "8080",
 					"path": [
 						"api",
+						"v1",
 						"customers",
 						"country",
 						"total"
@@ -111,7 +115,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/customers/max/spender",
+					"raw": "http://localhost:8080/api/v1/customers/max/spender",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -119,6 +123,7 @@
 					"port": "8080",
 					"path": [
 						"api",
+						"v1",
 						"customers",
 						"max",
 						"spender"
@@ -133,7 +138,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/customers/popular/genre/1",
+					"raw": "http://localhost:8080/api/v1/customers/12/popular/genre",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -141,10 +146,11 @@
 					"port": "8080",
 					"path": [
 						"api",
+						"v1",
 						"customers",
+						"12",
 						"popular",
-						"genre",
-						"1"
+						"genre"
 					]
 				}
 			},

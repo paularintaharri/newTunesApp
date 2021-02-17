@@ -1,7 +1,6 @@
 package com.example.NewTunesApp.controllers;
 
 import com.example.NewTunesApp.data_access.TrackRepository;
-import com.example.NewTunesApp.models.Track;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;

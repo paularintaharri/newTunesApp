@@ -60,11 +60,9 @@ public class CustomerRepository {
     public Boolean addCustomer(Customer customer) {
         Boolean success = false;
         try {
-            // Connect to DB
             conn = DriverManager.getConnection(URL);
             logger.log("Connection to SQLite has been established.");
 
-            // Make SQL query
             PreparedStatement preparedStatement =
                     conn.prepareStatement("INSERT INTO customer(CustomerId, FirstName, LastName, Country, PostalCode, Phone, Email) VALUES(?,?,?,?,?,?,?)");
             preparedStatement.setInt(1, customer.getCustomerId());
@@ -75,7 +73,6 @@ public class CustomerRepository {
             preparedStatement.setString(6, customer.getPhone());
             preparedStatement.setString(7, customer.getEmail());
 
-            // Execute Query
             int result = preparedStatement.executeUpdate();
             success = (result != 0);
             logger.log("Add customer successful");
@@ -95,11 +92,9 @@ public class CustomerRepository {
     public Boolean updateCustomer(Customer customer) {
         Boolean success = false;
         try {
-            // Connect to DB
             conn = DriverManager.getConnection(URL);
             logger.log("Connection to SQLite has been established.");
 
-            // Make SQL query
             PreparedStatement preparedStatement =
                     conn.prepareStatement("UPDATE customer SET FirstName = ?, LastName = ?, Country = ?, PostalCode = ?, Phone = ?, Email = ? WHERE customerId=?");
             preparedStatement.setString(1, customer.getFirstName());
@@ -110,7 +105,6 @@ public class CustomerRepository {
             preparedStatement.setString(6, customer.getEmail());
             preparedStatement.setInt(7, customer.getCustomerId());
 
-            // Execute Query
             int result = preparedStatement.executeUpdate();
             success = (result != 0);
             logger.log("Update customer successful");
@@ -130,14 +124,11 @@ public class CustomerRepository {
     public LinkedHashMap<String, Integer> getAllCustomersCountryTotal() {
         LinkedHashMap<String, Integer> customersCountry = new LinkedHashMap<>();
         try {
-            // Connect to DB
             conn = DriverManager.getConnection(URL);
             logger.log("Connection to SQLite has been established.");
 
-            // Make SQL query
             PreparedStatement preparedStatement =
                     conn.prepareStatement("SELECT DISTINCT Country, COUNT(*) FROM Customer  GROUP BY Country ORDER BY count(CustomerId) DESC;");
-            // Execute Query
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 customersCountry.put(
@@ -162,14 +153,11 @@ public class CustomerRepository {
     public LinkedHashMap<String, Double> getHighestSpenders() {
         LinkedHashMap<String, Double> highestSpender = new LinkedHashMap<>();
         try {
-            // Connect to DB
             conn = DriverManager.getConnection(URL);
             logger.log("Connection to SQLite has been established.");
 
-            // Make SQL query
             PreparedStatement preparedStatement =
                     conn.prepareStatement("SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) FROM Customer INNER JOIN Invoice WHERE Customer.CustomerId = Invoice.CustomerId GROUP BY Invoice.CustomerId ORDER BY SUM(Invoice.Total) DESC;");
-            // Execute Query
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 String custName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
@@ -195,21 +183,8 @@ public class CustomerRepository {
     public LinkedHashMap<String, Integer> getMostPopularGenre(int id) {
         LinkedHashMap<String, Integer> popularGenre = new LinkedHashMap<>();
         try {
-            // Connect to DB
             conn = DriverManager.getConnection(URL);
             logger.log("Connection to SQLite has been established.");
-
-            // Make SQL query
-            /*PreparedStatement preparedStatement =
-                    conn.prepareStatement("SELECT Customer.FirstName, Customer.LastName, Genre.name, COUNT(*) as total" +
-                            "    From Customer" +
-                            "    JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId" +
-                            "    JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId" +
-                            "    JOIN Track ON InvoiceLine.TrackId = Track.TrackId" +
-                            "    JOIN Genre ON Track.GenreId = Genre.GenreId" +
-                            "    WHERE Customer.CustomerId=?" +
-                            "    GROUP BY Genre.GenreId" +
-                            "    ORDER BY total DESC;"); */
 
             PreparedStatement preparedStatement =
                     conn.prepareStatement("WITH CountQuery AS (SELECT c.FirstName, c.LastName, g.Name,\n" +
